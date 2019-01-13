@@ -1,0 +1,39 @@
+<template>
+  <div class="siimple-card" style="max-width:600px">
+    ${furnituresSelected.length}
+    <div class="siimple-table">
+      <div class="siimple-table-header">
+        <div class="siimple-table-row">
+          <div class="siimple-table-cell"></div>
+          <div class="siimple-table-cell">Name</div>
+          <div class="siimple-table-cell">Volume (m3)</div>
+          <div class="siimple-table-cell">Total ${volumeTotal} m3</div>
+        </div>
+      </div>
+      <div class="siimple-table-body">
+          <div class="siimple-table-row" repeat.for="furniture of furnitures">
+          <div class="siimple-table-cell">
+            <div class="siimple-checkbox">
+            <input id="checkbox--remove${furniture.id}"
+              type="checkbox"
+              checked.bind="furnituresSelected"
+              model.bind="furniture"
+              matcher.bind="furnitureMatcher">
+            <label for="checkbox--remove${furniture.id}"></label>
+            </div>
+          </div>
+          <div class="siimple-table-cell">${furniture.name}</div>
+          <div class="siimple-table-cell">${furniture.volume} m3</div>
+          <div class="siimple-table-cell">
+            <button click.trigger="removeFurniture(furniture)" class="siimple-btn siimple-btn--error">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div if.bind="furnituresSelected.length">
+      <button click.trigger="removeSelectedFurnitures()" class="siimple-btn siimple-btn--error">Remove selected furnitures</button>
+    </div>
+  </div>
+</template>

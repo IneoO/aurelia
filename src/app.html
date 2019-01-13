@@ -1,0 +1,35 @@
+<template>
+  <require from="siimple/dist/siimple.min.css"></require>
+  <require from="./components/furniture-table"></require>
+  <div class="siimple-card" style="max-width:600px">
+    <div class="siimple-card-header">
+      <div class="siimple-form-title">Add a furniture</div>
+    </div>
+    <div class="siimple-card-body">
+      <form class="siimple-form" submit.trigger="addFurniture()">
+        <div class="siimple-field">
+          <div class="siimple-field-label">Name</div>
+          <input type="text" class="siimple-input" value.bind="name" placeholder="name">
+        </div>
+        <div class="siimple-field">
+          <div class="siimple-field-label">length (cm)</div>
+          <input type="number" class="siimple-input" value.bind="length" placeholder="length (cm)">
+        </div>
+        <div class="siimple-field">
+          <div class="siimple-field-label">width (cm)</div>
+          <input type="number" class="siimple-input" value.bind="width" placeholder="width (cm)">
+        </div>
+        <div class="siimple-field">
+          <div class="siimple-field-label">height (cm)</div>
+          <input type="number" class="siimple-input" value.bind="height" placeholder="height (cm)">
+        </div>
+        <div class="siimple-field">
+          <div class="siimple-field-label">volume m3</div>
+          <input type="text" class="siimple-input" value.one-way="volume" placeholder="volume m3" style="background-color:#ebebeb;" disabled>
+        </div>
+        <button type="submit" class="siimple-btn siimple-btn--primary">Add Furniture</button>
+      </form>
+    </div>
+  </div>
+  <furniture-table furnitures.bind="furnitures"></furniture-table>
+</template>
